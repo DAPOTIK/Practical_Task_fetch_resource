@@ -3,8 +3,6 @@ import httpx
 from loguru import logger
 from pydantic import BaseModel
 
-DEF_TIME = 3.0
-
 class Resource(BaseModel):
     userId: int
     id: int
@@ -14,7 +12,7 @@ class Resource(BaseModel):
 
 def fetch_resource(
         resource_id: int,
-        timeout: Optional[float] = DEF_TIME
+        timeout: Optional[float] = 3.0
 ) -> Optional[Resource]:
         url = f"https://jsonplaceholder.typicode.com/posts/{resource_id}"
 
